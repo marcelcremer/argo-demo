@@ -16,5 +16,6 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    nodeExporter:
-      hostRootfs: false
+    prometheus-node-exporter:
+      hostRootFsMount:
+        enabled: false
