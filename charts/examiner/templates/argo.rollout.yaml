@@ -20,6 +20,7 @@ spec:
       - pause: {duration: 10s}
       stableService: {{ include "name-stable" . }}
       canaryService: {{ include "name-canary" . }}
+      maxSurge: 100%
   revisionHistoryLimit: 2
   selector:
     matchLabels:
