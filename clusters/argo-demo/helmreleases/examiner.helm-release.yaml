@@ -19,5 +19,17 @@ spec:
       ECHO_VALUE: ⛈ First Rollout 🤘
       SERVER_ERROR_RATE: 0
       REQUEST_DELAY: 100..250
-    canary:
-      enabled: false
+      replicaCount: 1
+      resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
+    autoscaling:
+      enabled: true
+      minReplicas: 3
+      maxReplicas: 5
+      targetCPUUtilizationPercentage: 80
