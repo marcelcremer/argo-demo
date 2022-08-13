@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: {{ include "name-stable" . }}
   namespace: {{ .Release.Namespace }}
-  labels:
-    {{- include "labels" . | nindent 4 }}
 spec:
   type: ClusterIP
   ports:
@@ -12,5 +10,3 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-  selector:
-    {{- include "selectorLabels" . | nindent 4 }}
