@@ -10,7 +10,7 @@ spec:
     successCondition: "true"
     provider:
       web:
-        url: "http://examiner-stable.argotest"
+        url: "http://examiner-stable.canary-demo"
         timeoutSeconds: 20 # defaults to 10 seconds
   
   
