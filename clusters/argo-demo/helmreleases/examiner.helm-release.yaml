@@ -16,7 +16,7 @@ spec:
   interval: 1m
   values:
     configuration:
-      ECHO_VALUE: ⛈ First Rollout 🤘
+      ECHO_VALUE: ⛈ First Rollout yay! 🤘
       SERVER_ERROR_RATE: 0
       REQUEST_DELAY: 100..250
       replicaCount: 1
