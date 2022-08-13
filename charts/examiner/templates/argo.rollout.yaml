@@ -18,6 +18,8 @@ spec:
       - pause: {duration: 10s}
       - setWeight: 80
       - pause: {duration: 10s}
+      stableService: {{ include "name-stable" . }}
+      canaryService: {{ include "name-canary" . }}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
