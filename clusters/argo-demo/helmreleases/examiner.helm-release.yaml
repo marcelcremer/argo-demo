@@ -28,7 +28,7 @@ spec:
         port: 8080
       configuration: 
           ECHO_VALUE: ⛈ ARGO Rockssss🤘
-          SERVER_ERROR_RATE: 100
+          SERVER_ERROR_RATE: 0
           REQUEST_DELAY: 100..250
       resources:
         limits:
