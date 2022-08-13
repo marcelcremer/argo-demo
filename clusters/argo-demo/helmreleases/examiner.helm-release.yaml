@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: examiner
-  namespace: canary-deployment
+  namespace: canary-demo
 spec:
   releaseName: examiner
   chart:
@@ -16,20 +16,29 @@ spec:
   interval: 1m
   values:
     configuration:
-      ECHO_VALUE: ⛈ First Rollout yay! 🤘
-      SERVER_ERROR_RATE: 0
-      REQUEST_DELAY: 100..250
       replicaCount: 1
+      image:
+        repository: quay.io/heubeck/examiner
+        pullPolicy: IfNotPresent
+        tag: "1.6.2"
+      service:
+        type: NodePort
+        port: 80
+      container:
+        port: 8080
+      configuration: 
+          ECHO_VALUE: ⛈ ARGO Rockssss🤘
+          SERVER_ERROR_RATE: 100
+          REQUEST_DELAY: 100..250
       resources:
-      limits:
-        cpu: 100m
-        memory: 128Mi
-      requests:
-        cpu: 100m
-        memory: 128Mi
-
-    autoscaling:
-      enabled: true
-      minReplicas: 3
-      maxReplicas: 5
-      targetCPUUtilizationPercentage: 80
+        limits:
+          cpu: 100m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      autoscaling:
+        enabled: true
+        minReplicas: 3
+        maxReplicas: 5
+        targetCPUUtilizationPercentage: 80
