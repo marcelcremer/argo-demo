@@ -1,35 +1,35 @@
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: examiner
-  namespace: canary-deployment
-spec:
-  releaseName: examiner
-  chart:
-    spec:
-      chart: ./charts/examiner
-      sourceRef:
-        kind: GitRepository
-        name: flux-system
-        namespace: flux-system
-  interval: 1m
-  values:
-    configuration:
-      ECHO_VALUE: ⛈ First Rollout yay! 🤘
-      SERVER_ERROR_RATE: 0
-      REQUEST_DELAY: 100..250
-      replicaCount: 1
-      resources:
-      limits:
-        cpu: 100m
-        memory: 128Mi
-      requests:
-        cpu: 100m
-        memory: 128Mi
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: examiner
+#   namespace: canary-deployment
+# spec:
+#   releaseName: examiner
+#   chart:
+#     spec:
+#       chart: ./charts/examiner
+#       sourceRef:
+#         kind: GitRepository
+#         name: flux-system
+#         namespace: flux-system
+#   interval: 1m
+#   values:
+#     configuration:
+#       ECHO_VALUE: ⛈ First Rollout yay! 🤘
+#       SERVER_ERROR_RATE: 0
+#       REQUEST_DELAY: 100..250
+#       replicaCount: 1
+#       resources:
+#       limits:
+#         cpu: 100m
+#         memory: 128Mi
+#       requests:
+#         cpu: 100m
+#         memory: 128Mi
 
-    autoscaling:
-      enabled: true
-      minReplicas: 3
-      maxReplicas: 5
-      targetCPUUtilizationPercentage: 80
+#     autoscaling:
+#       enabled: true
+#       minReplicas: 3
+#       maxReplicas: 5
+#       targetCPUUtilizationPercentage: 80
