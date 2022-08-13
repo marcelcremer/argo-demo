@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: httpsuccessrate
+spec:
+  metrics:
+  - name: httpsuccessrate
+    failureLimit: 1
+    interval: 1s
+    successCondition: "true"
+    provider:
+      web:
+        url: "http://dummy-stable.argotest"
+        timeoutSeconds: 20 # defaults to 10 seconds
+  
+  
+  
+  
+  
