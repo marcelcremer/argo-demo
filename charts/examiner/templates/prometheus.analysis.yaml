@@ -1,4 +1,4 @@
-{{- if .Values.prometheusAnalysis.enabled }}
+{{- if eq .Values.prometheusAnalysis.enabled true }}
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
