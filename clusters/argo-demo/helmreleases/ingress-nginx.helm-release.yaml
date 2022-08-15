@@ -22,5 +22,15 @@ spec:
         enabled: true
         serviceMonitor:
           enabled: true
+      service:
+        metadata:
+          annotations:
+            prometheus.io/port: "10254"
+            prometheus.io/scrape: "true"
+          ports:
+          - name: prometheus
+            port: 10254
+            protocol: TCP
+            targetPort: prometheus
     prometheus:
       create: true
