@@ -36,12 +36,10 @@ spec:
       service:
         type: ClusterIP
         port: 80
-      adminUser: admin
-      adminPassword: admin
       ingress:
         enabled: true
         hosts: 
-          - grafana.test.local
+          - prometheus.test.local
         path: /
         annotations:
           kubernetes.io/ingress.class: "nginx"
