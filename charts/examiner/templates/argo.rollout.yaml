@@ -8,7 +8,12 @@ spec:
     canary:
       analysis:
         templates:
+        {{- if eq ((.Values.httpAnalysis).enabled) true }}
         - templateName: httpsuccessrate
+        {{- end }}
+        {{- if eq ((.Values.prometheusAnalysis).enabled) true }}
+        - templateName: prometheussuccessrate
+        {{- end }}
       steps:
       - setWeight: 20
       - pause: {duration: 60s}
