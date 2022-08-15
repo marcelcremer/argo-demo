@@ -43,3 +43,6 @@ spec:
         path: /
         annotations:
           kubernetes.io/ingress.class: "nginx"
+      prometheusSpec:
+        podMonitorSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
