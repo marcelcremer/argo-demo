@@ -1,3 +1,4 @@
+{{- if eq .Values.httpAnalysis.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
@@ -12,8 +13,4 @@ spec:
       web:
         url: "http://examiner-canary.canary-demo"
         timeoutSeconds: 20 # defaults to 10 seconds
-  
-  
-  
-  
-  
+{{- end }}
