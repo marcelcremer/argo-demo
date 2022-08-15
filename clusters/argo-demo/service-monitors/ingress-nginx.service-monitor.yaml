@@ -5,9 +5,8 @@ metadata:
   name: ingress-nginx-service-monitor
   namespace: prometheus
   labels:
-    app: ingress-nginx
-    # name: ingress-nginx-controller-metrics
-    namespace: ingress-nginx
+    app: ingress-nginx-service-monitor
+    namespace: prometheus
 spec:
   endpoints:
   - interval: 30s
@@ -15,7 +14,7 @@ spec:
     port: prometheus
   namespaceSelector:
     matchNames:
-    - logiq
+    - ingress-nginx
   selector:
     matchLabels:
       app: ingress-nginx
