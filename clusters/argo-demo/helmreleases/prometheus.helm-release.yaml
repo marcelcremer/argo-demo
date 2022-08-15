@@ -21,14 +21,27 @@ spec:
         enabled: false
     grafana:
       service:
-        type: NodePort
-        port: 30005
+        type: ClusterIP
+        port: 80
       adminUser: admin
       adminPassword: admin
       ingress:
         enabled: true
         hosts: 
-          - prometheus.test.local
+          - grafana.test.local
+        path: /
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+    prometheus:
+      service:
+        type: ClusterIP
+        port: 80
+      adminUser: admin
+      adminPassword: admin
+      ingress:
+        enabled: true
+        hosts: 
+          - grafana.test.local
         path: /
         annotations:
           kubernetes.io/ingress.class: "nginx"
