@@ -27,14 +27,6 @@ spec:
       adminPassword: admin
       ingress:
         enabled: true
-        hosts:
-        - host: prometheus.local
-          http:
-            paths:
-            - path: /
-              pathType: Prefix
-              backend:
-                service:
-                  name: prometheus-grafana
-                  port:
-                    number: 80
+        hosts: |
+          - prometheus.test.local
+        path: /
