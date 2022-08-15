@@ -23,3 +23,5 @@ spec:
       service:
         type: NodePort
         port: 30005
+      adminUser: admin
+      adminPassword: admin
