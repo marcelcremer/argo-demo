@@ -5,10 +5,6 @@ metadata:
   name: examiner
   namespace: canary-demo
 spec:
-  prometheusAnalysis:
-    enabled: true
-  httpAnalysis:
-    enabled: false
   releaseName: examiner
   chart:
     spec:
@@ -46,3 +42,7 @@ spec:
         SERVER_ERROR_RATE: 0
         REQUEST_DELAY: 100..250
         FAILURE_LIMIT: 50%
+        prometheusAnalysis:
+          enabled: true
+        httpAnalysis:
+          enabled: false
