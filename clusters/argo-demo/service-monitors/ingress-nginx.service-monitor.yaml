@@ -5,8 +5,8 @@ metadata:
   name: ingress-ngninx-service-monitor
   namespace: prometheus
   labels:
-    app: kubernetes-ingress
-    name: ingress-nginx-controller-metrics
+    app: ingress-nginx
+    # name: ingress-nginx-controller-metrics
     namespace: ingress-nginx
 spec:
   endpoints:
@@ -18,4 +18,4 @@ spec:
     - logiq
   selector:
     matchLabels:
-      app: kubernetes-ingress
+      app: ingress-nginx
