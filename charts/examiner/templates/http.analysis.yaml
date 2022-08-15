@@ -5,7 +5,7 @@ metadata:
 spec:
   metrics:
   - name: httpsuccessrate
-    failureLimit: 1
+    failureLimit: {{ .Values.FAILURE_LIMIT }}
     interval: 1s
     successCondition: "true"
     provider:
