@@ -19,7 +19,7 @@ spec:
     image:
       repository: quay.io/heubeck/examiner
       pullPolicy: IfNotPresent
-      tag: "1.6.4"
+      tag: "1.6.3"
     service:
       type: NodePort
       port: 80
@@ -39,7 +39,7 @@ spec:
       targetCPUUtilizationPercentage: 80
     configuration: 
         ECHO_VALUE: ⛈ ARGO Rocks again🤘
-        SERVER_ERROR_RATE: 0
+        SERVER_ERROR_RATE: 60
         REQUEST_DELAY: 100..250
         FAILURE_LIMIT: 50%
         prometheusAnalysis:
