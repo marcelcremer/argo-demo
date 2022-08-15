@@ -19,7 +19,7 @@ spec:
     prometheus-node-exporter:
       hostRootFsMount:
         enabled: false
-    prometheus-grafana:
+    grafana:
       service:
         type: NodePort
         port: 30005
