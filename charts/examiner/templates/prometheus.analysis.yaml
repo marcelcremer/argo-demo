@@ -6,7 +6,7 @@ spec:
   metrics:
   - name: prometheussuccessrate
     successCondition: result[0] >= 0.95
-    failureLimit: {{ .Values.FAILURE_LIMIT }}
+    failureLimit: 5
     interval: 1s
     provider:
       prometheus:
