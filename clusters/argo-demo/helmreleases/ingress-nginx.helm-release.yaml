@@ -4,6 +4,10 @@ kind: HelmRelease
 metadata:
   name: ingress-nginx
   namespace: ingress-nginx
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9113"
+    prometheus.io/scheme: http
 spec:
   interval: 10m
   chart:
