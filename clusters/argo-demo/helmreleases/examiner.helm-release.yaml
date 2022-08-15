@@ -38,11 +38,11 @@ spec:
       maxReplicas: 5
       targetCPUUtilizationPercentage: 80
     prometheusAnalysis:
-      enabled: false
-    httpAnalysis:
       enabled: true
+    httpAnalysis:
+      enabled: false
     configuration: 
         ECHO_VALUE: ⛈ ARGO Rocks again🤘
-        SERVER_ERROR_RATE: 0
+        SERVER_ERROR_RATE: 50
         REQUEST_DELAY: 100..250
         FAILURE_LIMIT: 50%
