@@ -25,3 +25,16 @@ spec:
         port: 30005
       adminUser: admin
       adminPassword: admin
+      ingress:
+        enabled: true
+        hosts:
+        - host: prometheus.local
+          http:
+            paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: {{ include "name" . }}
+                  port:
+                    number: 80
