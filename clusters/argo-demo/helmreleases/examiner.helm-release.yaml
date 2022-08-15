@@ -40,7 +40,7 @@ spec:
     prometheusAnalysis:
       enabled: false
     httpAnalysis:
-      enabled: false
+      enabled: true
     configuration: 
         ECHO_VALUE: ⛈ ARGO Rocks again🤘
         SERVER_ERROR_RATE: 0
