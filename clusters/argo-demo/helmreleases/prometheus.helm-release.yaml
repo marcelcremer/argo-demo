@@ -27,6 +27,6 @@ spec:
       adminPassword: admin
       ingress:
         enabled: true
-        hosts: |
+        hosts: 
           - prometheus.test.local
         path: /
