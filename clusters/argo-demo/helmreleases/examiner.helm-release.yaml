@@ -43,6 +43,6 @@ spec:
       enabled: false
     configuration: 
         ECHO_VALUE: ⛈ ARGO Rocks again🤘
-        SERVER_ERROR_RATE: 3
+        SERVER_ERROR_RATE: 0
         REQUEST_DELAY: 100..250
         FAILURE_LIMIT: 50%
