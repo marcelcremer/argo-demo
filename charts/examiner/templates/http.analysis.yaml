@@ -1,4 +1,4 @@
-{{- if eq .Values.httpAnalysis.enabled }}
+{{- if .Values.httpAnalysis.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
