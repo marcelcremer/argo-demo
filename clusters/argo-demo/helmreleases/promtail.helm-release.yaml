@@ -16,5 +16,5 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    loki:
-      serviceName: loki
+    clients:
+      url: 'http://loki.loki:3100/loki/api/v1/push'
