@@ -8,7 +8,7 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: grafana/loki-distributed
+      chart: loki-distributed
       version: 39.6.0
       sourceRef:
         kind: HelmRepository
