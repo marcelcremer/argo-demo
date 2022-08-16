@@ -16,7 +16,8 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    clients:
-      - url: http://loki.loki:3100/loki/api/v1/push
-        external_labels:
-          cluster: argo-demo
+    config:
+      clients:
+        - url: http://loki.loki:3100/loki/api/v1/push
+          external_labels:
+            cluster: argo-demo
