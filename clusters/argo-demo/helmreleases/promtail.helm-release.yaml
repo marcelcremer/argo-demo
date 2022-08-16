@@ -2,14 +2,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: loki
+  name: promtail
   namespace: loki
 spec:
   interval: 1m
   chart:
     spec:
-      chart: loki
-      version: 2.14.1
+      chart: promtail
+      version: 2.0.2
       sourceRef:
         kind: HelmRepository
         name: grafana
