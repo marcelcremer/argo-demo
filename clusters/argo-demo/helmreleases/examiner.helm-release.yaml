@@ -19,7 +19,7 @@ spec:
     image:
       repository: quay.io/heubeck/examiner
       pullPolicy: IfNotPresent
-      tag: "1.6.2"
+      tag: "1.6.4"
     service:
       type: NodePort
       port: 80
@@ -43,6 +43,6 @@ spec:
       enabled: true
     configuration: 
         ECHO_VALUE: ⛈ ARGO Rocks 🤘
-        SERVER_ERROR_RATE: 0
+        SERVER_ERROR_RATE: 60
         REQUEST_DELAY: 100..250
         FAILURE_LIMIT: 50%
