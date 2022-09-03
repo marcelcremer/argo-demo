@@ -23,6 +23,6 @@ spec:
       hosts: 
         - host: unleash.test.local
           paths:
-            path: /
-            pathType: ImplementationSpecific
+            - path: /
+              pathType: ImplementationSpecific
           
