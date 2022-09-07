@@ -18,5 +18,6 @@ spec:
     redis:
       host: redis.redis
       user:
+      port: 6379
       password:
       list: offboarding
