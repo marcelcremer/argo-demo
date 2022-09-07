@@ -1,0 +1,39 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledJob
+metadata:
+  name: redis-runner-job
+spec:
+  jobTargetRef:
+    parallelism: 1                            # [max number of desired pods](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#controlling-parallelism)
+    completions: 1                            # [desired number of successfully finished pods](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#controlling-parallelism)
+    activeDeadlineSeconds: 600                #  Specifies the duration in seconds relative to the startTime that the job may be active before the system tries to terminate it; value must be positive integer
+    backoffLimit: 6                           # Specifies the number of retries before marking this job failed. Defaults to 6
+    template:
+      spec:
+        containers:
+        - name: redis-runner-dummy
+          image: marcelcremer/redis-runner-dummy:latest
+          imagePullPolicy: Always
+          restartPolicy: Never
+          envFrom:
+            - secretRef:
+                name: redis-runner
+  pollingInterval: 30                         # Optional. Default: 30 seconds
+  successfulJobsHistoryLimit: 5               # Optional. Default: 100. How many completed jobs should be kept.
+  failedJobsHistoryLimit: 5                   # Optional. Default: 100. How many failed jobs should be kept.
+  envSourceContainerName: {container-name}    # Optional. Default: .spec.JobTargetRef.template.spec.containers[0]
+  maxReplicaCount: 20                        # Optional. Default: 100
+  scalingStrategy:
+    strategy: "custom"                        # Optional. Default: default. Which Scaling Strategy to use. 
+    customScalingQueueLengthDeduction: 1      # Optional. A parameter to optimize custom ScalingStrategy.
+    customScalingRunningJobPercentage: "0.5"  # Optional. A parameter to optimize custom ScalingStrategy.
+  triggers:
+    - type: redis
+      metadata:
+        listName: {{ values.redis.list | quote }} # Required
+        listLength: "1" # Required
+        enableTLS: "false" # optional
+        databaseIndex: "0" # optional
+        hostFromEnv: REDIS_HOST
+        portFromEnv: REDIS_PORT
+        passwordFromEnv: REDIS_PASSWORD
