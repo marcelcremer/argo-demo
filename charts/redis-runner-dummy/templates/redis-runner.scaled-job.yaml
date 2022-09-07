@@ -30,7 +30,7 @@ spec:
   triggers:
     - type: redis
       metadata:
-        listName: {{ values.redis.list | quote }} # Required
+        listName: {{ .Values.redis.list | quote }} # Required
         listLength: "1" # Required
         enableTLS: "false" # optional
         databaseIndex: "0" # optional
