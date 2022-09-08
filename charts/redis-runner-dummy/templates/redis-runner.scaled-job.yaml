@@ -10,11 +10,11 @@ spec:
     backoffLimit: 6                           # Specifies the number of retries before marking this job failed. Defaults to 6
     template:
       spec:
+        restartPolicy: Never
         containers:
         - name: redis-runner-dummy
           image: marcelcremer/redis-runner-dummy:latest
           imagePullPolicy: Always
-          restartPolicy: Never
           envFrom:
             - secretRef:
                 name: redis-runner
