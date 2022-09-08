@@ -22,7 +22,7 @@ spec:
   successfulJobsHistoryLimit: 5               # Optional. Default: 100. How many completed jobs should be kept.
   failedJobsHistoryLimit: 5                   # Optional. Default: 100. How many failed jobs should be kept.
   # envSourceContainerName: {container-name}    # Optional. Default: .spec.JobTargetRef.template.spec.containers[0]
-  maxReplicaCount: 20                        # Optional. Default: 100
+  maxReplicaCount: 25                        # Optional. Default: 100
   scalingStrategy:
     strategy: "custom"                        # Optional. Default: default. Which Scaling Strategy to use. 
     customScalingQueueLengthDeduction: 1      # Optional. A parameter to optimize custom ScalingStrategy.
