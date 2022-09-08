@@ -16,8 +16,7 @@ spec:
           image: marcelcremer/redis-runner-dummy:latest
           imagePullPolicy: Always
           envFrom:
-            - secretRef:
-                name: redis-runner
+            - secretRef: { name: redis-runner }
   pollingInterval: 30                         # Optional. Default: 30 seconds
   successfulJobsHistoryLimit: 5               # Optional. Default: 100. How many completed jobs should be kept.
   failedJobsHistoryLimit: 5                   # Optional. Default: 100. How many failed jobs should be kept.
