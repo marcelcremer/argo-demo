@@ -69,7 +69,7 @@ spec:
 
       # Options for the Teleport service
       service:
-        type: LoadBalancer
+        type: NodePort
         # Additional entries here will be added to the service spec.
         spec: {}
           # loadBalancerIP: "1.2.3.4"
