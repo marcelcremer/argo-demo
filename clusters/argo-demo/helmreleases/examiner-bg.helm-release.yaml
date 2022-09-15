@@ -21,7 +21,7 @@ spec:
       pullPolicy: IfNotPresent
       tag: "1.6.2"
     service:
-      type: NodePort
+      type: ClusterIP
       port: 80
     container:
       port: 8080
