@@ -1,75 +1,75 @@
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: teleport
-  namespace: teleport
-spec:
-  interval: 10m
-  chart:
-    spec:
-      chart: teleport-cluster
-      version: 10.2.1
-      sourceRef:
-        kind: HelmRepository
-        name: teleport
-        namespace: flux-system
-      interval: 10m
-  values:
-      clusterName: "teleport.test.local"
-      kubeClusterName: "docker-desktop"
-      authentication:
-        type: local
-        # Possible values are 'off', 'on', 'otp', 'optional' and 'webauthn'.
-        secondFactor: "otp"
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: teleport
+#   namespace: teleport
+# spec:
+#   interval: 10m
+#   chart:
+#     spec:
+#       chart: teleport-cluster
+#       version: 10.2.1
+#       sourceRef:
+#         kind: HelmRepository
+#         name: teleport
+#         namespace: flux-system
+#       interval: 10m
+#   values:
+#       clusterName: "teleport.test.local"
+#       kubeClusterName: "docker-desktop"
+#       authentication:
+#         type: local
+#         # Possible values are 'off', 'on', 'otp', 'optional' and 'webauthn'.
+#         secondFactor: "otp"
 
-      # ACME is a protocol for getting Web X.509 certificates
-      # Note: ACME can only be used for single-instance clusters. It is not suitable for use in HA configurations.
-      # For HA configurations, see either the "highAvailability.certManager" or "tls" values.
-      # Setting acme to 'true' enables the ACME protocol and will attempt to get a free TLS certificate from Let's Encrypt.
-      # Setting acme to 'false' (the default) will cause Teleport to generate and use self-signed certificates for its web UI.
-      # This section is mutually exclusive with the "tls" value below.
-      acme: false
-      # acmeEmail is the email address to provide during certificate registration (this is a Let's Encrypt requirement)
-      acmeEmail: ""
-      # acmeURI is the ACME server to use for getting certificates. The default is to use Let's Encrypt's production server.
-      acmeURI: ""
+#       # ACME is a protocol for getting Web X.509 certificates
+#       # Note: ACME can only be used for single-instance clusters. It is not suitable for use in HA configurations.
+#       # For HA configurations, see either the "highAvailability.certManager" or "tls" values.
+#       # Setting acme to 'true' enables the ACME protocol and will attempt to get a free TLS certificate from Let's Encrypt.
+#       # Setting acme to 'false' (the default) will cause Teleport to generate and use self-signed certificates for its web UI.
+#       # This section is mutually exclusive with the "tls" value below.
+#       acme: false
+#       # acmeEmail is the email address to provide during certificate registration (this is a Let's Encrypt requirement)
+#       acmeEmail: ""
+#       # acmeURI is the ACME server to use for getting certificates. The default is to use Let's Encrypt's production server.
+#       acmeURI: ""
 
-      # Configuration of the optional Teleport operator
-      operator:
-        # Set enabled to true to add the Kubernetes Teleport Operator
-        enabled: true
-        resources: {}
-      # Labels is a map of key-value pairs about this cluster
-      labels: {}
-      # Mode to deploy the chart in. The default is "standalone". Options:
-      # - "standalone": will deploy a Teleport container running auth and proxy services with a PersistentVolumeClaim for storage.
-      # - "aws": will deploy a Teleport container running auth and proxy services using DynamoDB for backend/audit log storage and S3 for session recordings. (1)
-      # - "gcp": will deploy a Teleport container running auth and proxy services using Firestore for backend/audit log storage and Google Cloud storage for session recordings. (2)
-      # - "custom": will deploy a Teleport container using a teleport.yaml config file that you provide. (3)
-      # (1) To use "aws" mode, you must also configure the "aws" section below.
-      # (2) To use "gcp" mode, you must also configure the "gcp" section below.
-      # (3) When set to "custom", you must create a ConfigMap containing a 'teleport.yaml' key with an inline Teleport YAML config,
-      #     give it the same name as the Helm release and place it in the chart namespace.
-      #     kubectl -n ${TELEPORT_NAMESPACE?} create configmap ${HELM_RELEASE_NAME?} --from-file=teleport.yaml
-      chartMode: standalone
+#       # Configuration of the optional Teleport operator
+#       operator:
+#         # Set enabled to true to add the Kubernetes Teleport Operator
+#         enabled: true
+#         resources: {}
+#       # Labels is a map of key-value pairs about this cluster
+#       labels: {}
+#       # Mode to deploy the chart in. The default is "standalone". Options:
+#       # - "standalone": will deploy a Teleport container running auth and proxy services with a PersistentVolumeClaim for storage.
+#       # - "aws": will deploy a Teleport container running auth and proxy services using DynamoDB for backend/audit log storage and S3 for session recordings. (1)
+#       # - "gcp": will deploy a Teleport container running auth and proxy services using Firestore for backend/audit log storage and Google Cloud storage for session recordings. (2)
+#       # - "custom": will deploy a Teleport container using a teleport.yaml config file that you provide. (3)
+#       # (1) To use "aws" mode, you must also configure the "aws" section below.
+#       # (2) To use "gcp" mode, you must also configure the "gcp" section below.
+#       # (3) When set to "custom", you must create a ConfigMap containing a 'teleport.yaml' key with an inline Teleport YAML config,
+#       #     give it the same name as the Helm release and place it in the chart namespace.
+#       #     kubectl -n ${TELEPORT_NAMESPACE?} create configmap ${HELM_RELEASE_NAME?} --from-file=teleport.yaml
+#       chartMode: standalone
 
-      persistence:
-        # Enable persistence using a PersistentVolumeClaim
-        enabled: true
-        # Leave blank to automatically create a PersistentVolumeClaim for Teleport storage.
-        # If you would like to use a pre-existing PersistentVolumeClaim, put its name here.
-        existingClaimName: ""
-        # Size of persistent volume to request when created by Teleport.
-        # Ignored if existingClaimName is provided.
-        volumeSize: 10Gi
+#       persistence:
+#         # Enable persistence using a PersistentVolumeClaim
+#         enabled: true
+#         # Leave blank to automatically create a PersistentVolumeClaim for Teleport storage.
+#         # If you would like to use a pre-existing PersistentVolumeClaim, put its name here.
+#         existingClaimName: ""
+#         # Size of persistent volume to request when created by Teleport.
+#         # Ignored if existingClaimName is provided.
+#         volumeSize: 10Gi
 
       
-      affinity: {}
+#       affinity: {}
 
-      # Options for the Teleport service
-      service:
-        type: NodePort
-        # Additional entries here will be added to the service spec.
-        spec: {}
-          # loadBalancerIP: "1.2.3.4"
+#       # Options for the Teleport service
+#       service:
+#         type: NodePort
+#         # Additional entries here will be added to the service spec.
+#         spec: {}
+#           # loadBalancerIP: "1.2.3.4"
