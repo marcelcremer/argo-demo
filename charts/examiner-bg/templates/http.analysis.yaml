@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: httpsuccessrate
+spec:
+  metrics:
+  - name: httpsuccessrate
+    failureLimit: {{ .Values.FAILURE_LIMIT }}
+    interval: 1s
+    successCondition: "true"
+    provider:
+      web:
+        url: "http://examiner-canary.canary-demo"
+        timeoutSeconds: 20 # defaults to 10 seconds

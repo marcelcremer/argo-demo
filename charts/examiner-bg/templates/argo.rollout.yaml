@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollout-bluegreen
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: rollout-bluegreen
+  template:
+    metadata:
+      labels:
+        app: rollout-bluegreen
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        envFrom:
+          - configMapRef:
+              name: {{ include "name" . }}
+        ports:
+          - name: http
+            containerPort: {{ .Values.container.port }}
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /.well-known/live
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /.well-known/ready
+            port: http
+        resources:
+          {{- toYaml .Values.resources | nindent 12 }}
+  strategy:
+    blueGreen: 
+      activeService: rollout-bluegreen-active
+      previewService: rollout-bluegreen-preview
+      autoPromotionEnabled: false

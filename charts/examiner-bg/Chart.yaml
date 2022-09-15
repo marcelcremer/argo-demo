@@ -1,0 +1,6 @@
+apiVersion: v2
+name: examiner
+description: Test chart for ARGO rollouts
+type: application
+version: "1.18.0"
+appVersion: "1.5.0"
