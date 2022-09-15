@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: examiner.test.local
+  - host: examiner-bg.test.local
     http:
       paths:
       - path: /

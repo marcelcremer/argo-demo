@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "name-stable" . }}
+  name: rollout-bluegreen-active
   namespace: {{ .Release.Namespace }}
 spec:
   type: ClusterIP
