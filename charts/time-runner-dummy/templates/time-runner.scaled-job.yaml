@@ -32,4 +32,4 @@ spec:
         timezone: Europe/Berlin
         start: "* * * * *"
         end: "45 * * * *"
-        desiredReplicas: "10"
+        desiredReplicas: "10" #
