@@ -29,7 +29,7 @@ spec:
   triggers:
     - type: cron
       metadata:
-        timezone: Europe/Berlin  # The acceptable values would be a value from the IANA Time Zone Database.
-        start: '* * * * *'
-        end: '45 * * * *'         # Every hour on the 45th minute
+        timezone: Europe/Berlin
+        start: "* * * * *"
+        end: "45 * * * *"
         desiredReplicas: "10"
