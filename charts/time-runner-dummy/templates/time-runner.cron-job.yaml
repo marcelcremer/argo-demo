@@ -9,7 +9,6 @@ spec:
       template:
         spec:
           containers:
-          containers:
           - name: redis-runner-dummy
             image: marcelcremer/redis-runner-dummy:latest
             imagePullPolicy: Always
