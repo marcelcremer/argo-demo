@@ -27,9 +27,9 @@ spec:
     customScalingQueueLengthDeduction: 1      # Optional. A parameter to optimize custom ScalingStrategy.
     customScalingRunningJobPercentage: "0.5"  # Optional. A parameter to optimize custom ScalingStrategy.
   triggers:
-  - type: cron
-    metadata:
-      timezone: Europe/Berlin  # The acceptable values would be a value from the IANA Time Zone Database.
-      start: '* * * * *'
-      end: '45 * * * *'         # Every hour on the 45th minute
-      desiredReplicas: "10"
+    - type: cron
+      metadata:
+        timezone: Europe/Berlin  # The acceptable values would be a value from the IANA Time Zone Database.
+        start: '* * * * *'
+        end: '45 * * * *'         # Every hour on the 45th minute
+        desiredReplicas: "10"
