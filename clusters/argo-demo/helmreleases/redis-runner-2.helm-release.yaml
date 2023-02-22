@@ -1,0 +1,23 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: redis-runner-2
+  namespace: redis-runner-2
+spec:
+  releaseName: redis-runner
+  chart:
+    spec:
+      chart: ./charts/redis-runner-dummy
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+        namespace: flux-system
+  interval: 1m
+  values:
+    redis:
+      host: redis-master.redis
+      user: ''
+      port: '6379'
+      password: ''
+      list: offboarding
