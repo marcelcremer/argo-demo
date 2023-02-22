@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: time-runner-job
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          containers:
+          - name: redis-runner-dummy
+            image: marcelcremer/redis-runner-dummy:latest
+            imagePullPolicy: Always
+            envFrom:
+              - secretRef: { name: time-runner }
+          restartPolicy: OnFailure
