@@ -15,9 +15,10 @@ spec:
         namespace: flux-system
   interval: 1m
   values:
-    redis:
-      host: redis-master.redis
-      user: ''
-      port: '6379'
-      password: ''
-      list: offboarding
+    triggers:
+    - type: cron
+      metadata:
+        timezone: Europe/Berlin  # The acceptable values would be a value from the IANA Time Zone Database.
+        start: '* * * * *'
+        end: '45 * * * *'         # Every hour on the 45th minute
+        desiredReplicas: "10"
