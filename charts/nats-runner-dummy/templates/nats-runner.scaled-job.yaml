@@ -26,6 +26,7 @@ spec:
     strategy: "custom"                        # Optional. Default: default. Which Scaling Strategy to use. 
     customScalingQueueLengthDeduction: 1      # Optional. A parameter to optimize custom ScalingStrategy.
     customScalingRunningJobPercentage: "0.5"  # Optional. A parameter to optimize custom ScalingStrategy.
+  triggers:
   - type: nats-jetstream
     metadata:
       natsServerMonitoringEndpoint: "nats.nats:8222"
