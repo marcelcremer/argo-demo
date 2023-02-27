@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: argo-rollouts
-  namespace: argo-rollouts
+  name: nats
+  namespace: nats
 spec:
   interval: 10m
   chart:
