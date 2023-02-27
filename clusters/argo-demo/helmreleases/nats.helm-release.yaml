@@ -8,7 +8,7 @@ spec:
   interval: 10m
   chart:
     spec:
-      chart: bitnami/nats
+      chart: nats
       version: 7.5.10
       sourceRef:
         kind: HelmRepository
