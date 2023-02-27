@@ -17,3 +17,5 @@ spec:
   values:
     auth:
       enabled: false
+    jetstream:
+      enabled: true
