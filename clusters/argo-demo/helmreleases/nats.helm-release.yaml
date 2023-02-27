@@ -19,3 +19,5 @@ spec:
     installCRDs: true
     dashboard:
       enabled: false
+    jetstream:
+      enabled: true
