@@ -31,8 +31,8 @@ spec:
     metadata:
       natsServerMonitoringEndpoint: "nats.nats:8222"
       account: "$G"
-      stream: "test"
-      consumer: "pull_consumer"
+      stream: "IMPORT"
+      consumer: "KEDA"
       lagThreshold: "10"
       activationLagThreshold: "15"
       useHttps: "false"
