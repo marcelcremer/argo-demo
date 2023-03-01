@@ -28,14 +28,7 @@ spec:
   #   customScalingQueueLengthDeduction: 1      # Optional. A parameter to optimize custom ScalingStrategy.
   #   customScalingRunningJobPercentage: "0.5"  # Optional. A parameter to optimize custom ScalingStrategy.
   scalingStrategy:
-    strategy: "custom"                        # Optional. Default: default. Which Scaling Strategy to use. 
-    customScalingQueueLengthDeduction: 1      # Optional. A parameter to optimize custom ScalingStrategy.
-    customScalingRunningJobPercentage: "0.5"  # Optional. A parameter to optimize custom ScalingStrategy.
-    pendingPodConditions:                     # Optional. A parameter to calculate pending job count per the specified pod conditions
-      - "Ready"
-      - "PodScheduled"
-      - "AnyOtherCustomPodCondition"
-    multipleScalersCalculation : "max" # Optional. Default: max. Specifies how to calculate the target metrics when multiple scalers are defined.
+    strategy: "accurate"
   triggers:
   - type: nats-jetstream
     metadata:
