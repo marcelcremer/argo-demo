@@ -13,7 +13,7 @@ spec:
         restartPolicy: Never
         containers:
         - name: nats-runner-dummy
-          image: marcelcremer/redis-runner-dummy:latest
+          image: marcelcremer/nats-runner-dummy:latest
           imagePullPolicy: Always
           # envFrom:
           #   - secretRef: { name: nats-runner }
