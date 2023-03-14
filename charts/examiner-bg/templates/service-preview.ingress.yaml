@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: 'rollout-bluegreen-active-ingress'
+  name: 'rollout-bluegreen-preview-ingress'
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-  - host: examiner-bg.test.local
+  - host: examiner-bg-preview.test.local
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: rollout-bluegreen-active
+            name: rollout-bluegreen-preview
             port:
               number: 80
