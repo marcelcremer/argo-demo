@@ -19,7 +19,7 @@ spec:
     image:
       repository: quay.io/heubeck/examiner
       pullPolicy: IfNotPresent
-      tag: "1.6.4"
+      tag: "1.6.5"
     service:
       type: ClusterIP
       port: 80
@@ -39,10 +39,8 @@ spec:
       targetCPUUtilizationPercentage: 80
     prometheusAnalysis:
       enabled: false
-    httpAnalysis:
-      enabled: true
     configuration: 
-        ECHO_VALUE: ⛈ ARGO Rocks 🤘
+        ECHO_VALUE: Some error happened 🙁
         SERVER_ERROR_RATE: 100
         REQUEST_DELAY: 100..250
         FAILURE_LIMIT: 50%
