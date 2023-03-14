@@ -16,8 +16,6 @@ spec:
     metadata:
       labels:
         {{- include "selectorLabels" . | nindent 8 }}
-      annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       serviceAccountName: {{ include "name" . }}
       containers:
