@@ -1,47 +1,47 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: {{ include "name" . }}
-#   namespace: {{ .Release.Namespace }}
-#   labels:
-#     {{- include "labels" . | nindent 4 }}
-# spec:
-#   {{- if not .Values.autoscaling.enabled }}
-#   replicas: {{ .Values.replicaCount }}
-#   {{- end }}
-#   selector:
-#     matchLabels:
-#       {{- include "selectorLabels" . | nindent 6 }}
-#   template:
-#     metadata:
-#       labels:
-#         {{- include "selectorLabels" . | nindent 8 }}
-#     spec:
-#       serviceAccountName: {{ include "name" . }}
-#       containers:
-#         - name: {{ .Chart.Name }}
-#           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-#           imagePullPolicy: {{ .Values.image.pullPolicy }}
-#           env:
-#             - name: ECHO_VALUE
-#               value: "⛈ ARGO Rocks 🤘"
-#             - name: SERVER_ERROR_RATE
-#               value: "0"
-#             - name: REQUEST_DELAY
-#               value: "100..250"
-#             - name: FAILURE_LIMIT
-#               value: "50%"
-#           ports:
-#             - name: http
-#               containerPort: {{ .Values.container.port }}
-#               protocol: TCP
-#           livenessProbe:
-#             httpGet:
-#               path: /.well-known/live
-#               port: http
-#           readinessProbe:
-#             httpGet:
-#               path: /.well-known/ready
-#               port: http
-#           resources:
-#             {{- toYaml .Values.resources | nindent 12 }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "name" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: ECHO_VALUE
+              value: "⛈ ARGO Rocks 🤘"
+            - name: SERVER_ERROR_RATE
+              value: "0"
+            - name: REQUEST_DELAY
+              value: "100..250"
+            - name: FAILURE_LIMIT
+              value: "50%"
+          ports:
+            - name: http
+              containerPort: {{ .Values.container.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /.well-known/live
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /.well-known/ready
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
