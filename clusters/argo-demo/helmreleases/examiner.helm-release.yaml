@@ -42,7 +42,7 @@ spec:
     httpAnalysis:
       enabled: true
     configuration: 
-        ECHO_VALUE: ⛈ ARGO Rocks 🤘
+        ECHO_VALUE: ⛈ ARGO is broken 🙁
         SERVER_ERROR_RATE: 100
         REQUEST_DELAY: 100..250
         FAILURE_LIMIT: 50%
