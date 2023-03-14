@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
             - name: ECHO_VALUE
-              value: "⛈ ARGO new Release 🤘"
+              value: "⛈ ARGO rocks 🤘"
             - name: SERVER_ERROR_RATE
               value: "0"
             - name: REQUEST_DELAY
