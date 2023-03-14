@@ -16,6 +16,8 @@ spec:
     metadata:
       labels:
         {{- include "selectorLabels" . | nindent 8 }}
+      annotations:
+        namespace: {{ .Release.Namespace }}
     spec:
       serviceAccountName: {{ include "name" . }}
       containers:
