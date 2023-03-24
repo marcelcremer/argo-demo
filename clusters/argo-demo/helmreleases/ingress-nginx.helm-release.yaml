@@ -31,8 +31,5 @@ spec:
             port: 10254
             protocol: TCP
             targetPort: prometheus
-      service:
-        annotations:
-          nginx.ingress.kubernetes.io/proxy-body-size: "0"
     prometheus:
       create: true

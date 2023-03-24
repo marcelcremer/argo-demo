@@ -22,3 +22,5 @@ spec:
       path: /
       hosts: 
         - docker-registry.test.local
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
