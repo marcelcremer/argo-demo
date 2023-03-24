@@ -8,17 +8,11 @@ spec:
   releaseName: redis-runner
   chart:
     spec:
-      chart: redis-runner
-      version: latest
+      chart: ./charts/redis-runner-dummy
       sourceRef:
-        kind: HelmRepository
-        name: local
+        kind: GitRepository
+        name: flux-system
         namespace: flux-system
-      # chart: ./charts/redis-runner-dummy
-      # sourceRef:
-      #   kind: GitRepository
-      #   name: flux-system
-      #   namespace: flux-system
   interval: 1m
   values:
     redis:
