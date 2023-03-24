@@ -13,7 +13,7 @@ spec:
         restartPolicy: Never
         containers:
         - name: redis-runner-dummy
-          image: docker-registry.docker-registry/redis-runner-dummy:latest
+          image: docker-registry.test.local/redis-runner-dummy:latest
           imagePullPolicy: Always
           envFrom:
             - secretRef: { name: redis-runner }
