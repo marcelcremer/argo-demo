@@ -6,4 +6,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  url: https://docker-registry.docker-registry
+  url: http://docker-registry.docker-registry
