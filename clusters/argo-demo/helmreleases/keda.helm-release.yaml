@@ -1,19 +1,18 @@
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: keda
-  namespace: keda
-spec:
-  interval: 1m
-  chart:
-    spec:
-      chart: keda
-      version: 2.9.4
-      sourceRef:
-        kind: HelmRepository
-        name: keda-core
-        namespace: flux-system
-      interval: 1m
-  values:
-   
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: keda
+#   namespace: keda
+# spec:
+#   interval: 1m
+#   chart:
+#     spec:
+#       chart: keda
+#       version: 2.9.4
+#       sourceRef:
+#         kind: HelmRepository
+#         name: keda-core
+#         namespace: flux-system
+#       interval: 1m
+#   values:
