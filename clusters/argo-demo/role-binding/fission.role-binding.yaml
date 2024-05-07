@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    meta.helm.sh/release-name: fission
+    meta.helm.sh/release-namespace: fission
+  labels:
+    helm.toolkit.fluxcd.io/name: fission
+    helm.toolkit.fluxcd.io/namespace: fission
+  name: fission-router
+  namespace: fission
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: fission-router
+subjects:
+  - kind: ServiceAccount
+    name: fission-router
+    namespace: fission
