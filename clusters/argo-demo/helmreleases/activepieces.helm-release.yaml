@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: activepieces
-      version: 0.26.1
+      version: 0.1.6
       sourceRef:
         kind: HelmRepository
         name: argo
