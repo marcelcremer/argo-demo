@@ -26,10 +26,10 @@ spec:
     # database: <database>
     ingress:
       enabled: true
-    className: "nginx"
     annotations:
-      kubernetes.io/ingress.class: nginx
-      kubernetes.io/tls-acme: "true"
+      traefik.ingress.kubernetes.io/router.entrypoints: web
+      kubernetes.io/ingress.class: traefik
+      # kubernetes.io/tls-acme: "true"
     hosts:
       - host:
         paths:
