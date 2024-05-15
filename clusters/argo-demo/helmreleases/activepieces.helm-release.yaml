@@ -8,11 +8,11 @@ spec:
   interval: 10m
   chart:
     spec:
-      chart: meyercharts/activepieces
+      chart: activepieces
       version: 0.1.6
       sourceRef:
         kind: HelmRepository
-        name: argo
+        name: meyercharts/activepieces
         namespace: flux-system
       interval: 10m
   values:
