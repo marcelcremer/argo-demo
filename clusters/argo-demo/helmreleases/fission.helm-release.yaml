@@ -1,18 +1,18 @@
-# ---
-# apiVersion: helm.toolkit.fluxcd.io/v2beta1
-# kind: HelmRelease
-# metadata:
-#   name: fission
-#   namespace: fission
-# spec:
-#   interval: 10m
-#   chart:
-#     spec:
-#       chart: fission-all
-#       version: 1.20.1
-#       sourceRef:
-#         kind: HelmRepository
-#         name: fission
-#         namespace: flux-system
-#       interval: 10m
-#   values:
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: fission
+  namespace: fission
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: fission-all
+      version: 1.20.1
+      sourceRef:
+        kind: HelmRepository
+        name: fission
+        namespace: flux-system
+      interval: 10m
+  values:
